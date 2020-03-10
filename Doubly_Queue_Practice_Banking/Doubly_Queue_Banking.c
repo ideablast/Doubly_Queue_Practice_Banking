@@ -3,6 +3,7 @@
 extern Queue *front[MAX_TELLER];
 extern Queue *rear[MAX_TELLER];
 
+/*DOUBLY_QUEUE_BANKING_VER*/
 Queue* Add_new_queue()
 {
 	Queue *temp = (Queue*)malloc(sizeof(Queue));
@@ -150,3 +151,12 @@ int Count_Queue(int teller_id)
 
 	return cnt;
 }
+
+
+/*TIME*/
+struct tm *get_time()//함수가 실행될때 마다 현재 시간을 구할 수 있음
+{
+	const time_t t = time(NULL);
+	return localtime(&t);
+}
+
