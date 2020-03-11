@@ -1,10 +1,12 @@
 #ifndef __Data_H__
 #define __Data_H__
+
 typedef struct _Customer {
 
 	int number;
 	char name;
-	int time;
+	int need_time;
+	int std_time;
 
 }Customer;
 
@@ -17,8 +19,15 @@ typedef struct _Queue {
 
 }Queue;
 
+typedef struct _Statistic {
+	int total_customer;
+	int total_proccessing_time;
+}Statistic;
+
+
 #endif
 
+#define MAX_WAITING_TIME 3
 #define MAX_TELLER 2
 #define MAX_CUSTOMER 20
 

@@ -5,8 +5,8 @@
 #define _CRT_NONSTDC_NO_DEPRECATE
 
 #include<stdio.h>
-#include<malloc.h>
 #include<stdlib.h>
+#include<malloc.h>
 #include<time.h>
 #include<string.h>
 #include<Windows.h>
