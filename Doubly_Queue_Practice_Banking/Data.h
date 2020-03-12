@@ -29,6 +29,7 @@ typedef struct _Statistic {
 
 #define MAX_WAITING_TIME 3
 #define MAX_TELLER 2
+#define MAX_QUEUE 3
 #define MAX_CUSTOMER 20
 
 #define TRUE 1

@@ -3,7 +3,7 @@
 //전체 코드 작성후 가변 배열로 변형
 Queue *front[MAX_TELLER];
 Queue *rear[MAX_TELLER];
-int time_table[MAX_TELLER][3] = {0};
+int time_table[MAX_TELLER][MAX_QUEUE] = {0};
 Statistic statistic_table[MAX_TELLER] = { 0 };
 
 int main()
@@ -11,6 +11,8 @@ int main()
 	struct tm *date;
 	int teller_idx;
 	int std_hour, std_min, std_sec;
+	int teller_id;
+	int customer_id = 1;
 	srand((unsigned int)time(NULL));
 
 	for (teller_idx = 0; teller_idx < MAX_TELLER; teller_idx++)
@@ -26,12 +28,23 @@ int main()
 
 	while (1)
 	{
-		date = Get_time();
+		if (customer_id > MAX_CUSTOMER+1)
+			break;
 
-		printf("%d/%d/%d %d:%d:%d.%d\n", date->tm_year + 1900, date->tm_mon + 1, date->tm_mday, date->tm_hour, date->tm_min, date->tm_sec);
-		system("pause");
-		system("cls");
+		deQueue_Customer();
+		enQueue_Teller_Change();
+
+		if (enQueue_New_Customer(customer_id) == TRUE)
+			customer_id++;
+
 	}
+
+	for (teller_idx = 0; teller_idx < MAX_TELLER; teller_idx++)
+	{
+		printf("창구 번호: %d\n",teller_idx);
+		printf("총 처리 고객 숫자: %d  총 처리 시간: %d\n", statistic_table[teller_idx].total_customer, statistic_table[teller_idx].total_proccessing_time);
+	}
+	
 	
 
 
