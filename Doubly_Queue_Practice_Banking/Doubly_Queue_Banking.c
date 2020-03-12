@@ -163,7 +163,7 @@ void Show_Customer(Queue *temp)
 void Time_Table_Update_L_deQueue(int teller_id)
 {
 	int idx;
-	for (idx = 0; idx < MAX_QUEUE - 1; idx++)
+	for (idx = 0; idx < MAX_QUEUE - 1; idx++)//계산식으로 처리하는것이 좀더 보기좋음
 	{
 		time_table[teller_id][idx] = time_table[teller_id][idx + 1];
 	}
@@ -191,10 +191,6 @@ void Time_Table_Update_R_enQueue(int teller_id, Customer temp)
 	}
 }
 
-void Banking_Congestion_Simulation()
-{
-
-}
 
 void deQueue_Customer( )
 {
@@ -224,10 +220,7 @@ void deQueue_Customer( )
 				statistic_table[teller_id].total_proccessing_time += temp.need_time;
 				deQueue_Customer();//시간이 밀렸다는 뜻으로 밀린게 없을때 까지 계속 반복
 			}
-			else
-			{
-
-			}
+			
 			Print_Queue(teller_id);
 		}
 	}

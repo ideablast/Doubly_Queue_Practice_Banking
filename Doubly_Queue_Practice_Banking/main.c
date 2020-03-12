@@ -32,8 +32,9 @@ int main()
 			break;
 
 		deQueue_Customer();
+		Sleep(1000);
 		enQueue_Teller_Change();
-
+		Sleep(1000);
 		if (enQueue_New_Customer(customer_id) == TRUE)
 			customer_id++;
 
